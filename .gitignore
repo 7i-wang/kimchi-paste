@@ -6,7 +6,8 @@
 **/DerivedData/
 
 # 用户配置
-**/*.xcuserdata/
+*.xcuserdata/
+**/xcuserdata/
 
 # 第三方依赖
 Pods/
