@@ -93,7 +93,7 @@ struct ContentView: View {
                 Text("\(clipboardManager.clipboardItems.count)/\(clipboardManager.maxItems) 项")
                     .font(.subheadline)
                     .fontWeight(.bold)
-                    .foregroundColor(Color(red: 0.9333333333333333, green: 0.9372549019607843, blue: 0.8784313725490196))
+                    .foregroundColor(Color.white)
                     .padding(.leading, 16)
                 
                 Spacer()
@@ -105,23 +105,16 @@ struct ContentView: View {
                     Text("清空所有")
                         .font(.subheadline)
                         .fontWeight(.bold)
-                        .foregroundColor(Color(red: 0.9333333333333333, green: 0.9372549019607843, blue: 0.8784313725490196))
+                        .foregroundColor(Color.white)
                 }
                 .buttonStyle(PlainButtonStyle())
                 .padding(.trailing, 16)
             }
             .frame(height: 32)
-            .background(Color(red: 0.6549019607843137, green: 0.7568627450980392, blue: 0.6588235294117647))
+            .background(Color(red: 0.6078431372549019, green: 0.8313725490196079, blue: 0.8941176470588236))
             .border(Color(.separatorColor), width: 0.5)
         }
-        .background(Color(red: 0.6549019607843137, green: 0.7568627450980392, blue: 0.6588235294117647))
-//        .alert(isPresented: $showAlert) {
-//            Alert(
-//                title: Text("已复制"),
-//                message: Text("内容已复制到剪贴板"),
-//                dismissButton: .default(Text("确定"))
-//            )
-//        }
+        .background(Color(red: 0.6078431372549019, green: 0.8313725490196079, blue: 0.8941176470588236))
     }
 }
 
@@ -170,7 +163,7 @@ struct ClipboardItemView: View {
                             NSCursor.pop()  // 恢复默认光标
                         }
                     }
-                    .foregroundColor(Color(red: 0.5058823529411764, green: 0.6039215686274509, blue: 0.5686274509803921))
+                    .foregroundColor(Color(red: 0.30196078431372547, green: 0.6588235294117647, blue: 0.8549019607843137))
                     .padding(4)
                     .background(RoundedRectangle(cornerRadius: 6)
                         .fill(hoverEffect ? Color.black.opacity(0.1) : Color(.controlBackgroundColor))
