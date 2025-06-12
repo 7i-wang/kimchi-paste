@@ -115,13 +115,13 @@ struct ContentView: View {
             .border(Color(.separatorColor), width: 0.5)
         }
         .background(Color(red: 0.6549019607843137, green: 0.7568627450980392, blue: 0.6588235294117647))
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("已复制"),
-                message: Text("内容已复制到剪贴板"),
-                dismissButton: .default(Text("确定"))
-            )
-        }
+//        .alert(isPresented: $showAlert) {
+//            Alert(
+//                title: Text("已复制"),
+//                message: Text("内容已复制到剪贴板"),
+//                dismissButton: .default(Text("确定"))
+//            )
+//        }
     }
 }
 
@@ -129,6 +129,8 @@ struct ContentView: View {
 struct ClipboardItemView: View {
     let item: ClipboardItem
     let onCopy: (String) -> Void
+    @State private var hoverEffect = false
+    @State private var showCheckmark = false
     
     var body: some View {
         HStack {
@@ -146,12 +148,34 @@ struct ClipboardItemView: View {
             
             Button(action: {
                 onCopy(item.content)
+
+                // 显示对号图标
+                withAnimation {
+                    showCheckmark = true
+                }
+
+                // 3秒后恢复复制图标
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    withAnimation {
+                        showCheckmark = false
+                    }
+                }
             }) {
-                Image(systemName: "doc.on.doc")
+                Image(systemName: showCheckmark ? "checkmark.circle" : "doc.on.doc")
+                    .onHover { hovering in
+                        hoverEffect = hovering
+                        if hovering {
+                            NSCursor.pointingHand.push()  // 悬停时显示手型光标
+                        } else {
+                            NSCursor.pop()  // 恢复默认光标
+                        }
+                    }
                     .foregroundColor(Color(red: 0.5058823529411764, green: 0.6039215686274509, blue: 0.5686274509803921))
-                    .padding(8)
-                    .background(Color(.controlBackgroundColor))
-                    .cornerRadius(8)
+                    .padding(4)
+                    .background(RoundedRectangle(cornerRadius: 6)
+                        .fill(hoverEffect ? Color.black.opacity(0.1) : Color(.controlBackgroundColor))
+                    )
+                    .cornerRadius(4)
             }
             .buttonStyle(PlainButtonStyle())
         }
