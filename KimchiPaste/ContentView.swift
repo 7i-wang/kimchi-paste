@@ -107,6 +107,13 @@ struct ContentView: View {
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
                 }
+                .onHover { hovering in
+                    if hovering {
+                        NSCursor.pointingHand.push()  // 悬停时显示手型光标
+                    } else {
+                        NSCursor.pop()  // 恢复默认光标
+                    }
+                }
                 .buttonStyle(PlainButtonStyle())
                 .padding(.trailing, 16)
             }
