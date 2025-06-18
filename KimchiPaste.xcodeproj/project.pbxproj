@@ -8,18 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3C5267C02DF95E1100DA18EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5267BF2DF95E1100DA18EA /* ContentView.swift */; };
-		3CFE12AE2DF942B700AE833F /* KimchiPasteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE12AD2DF942B700AE833F /* KimchiPasteApp.swift */; };
+		3CFE12AE2DF942B700AE833F /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE12AD2DF942B700AE833F /* Main.swift */; };
 		3CFE12B22DF942B700AE833F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE12B12DF942B700AE833F /* Assets.xcassets */; };
-		3CFE12B52DF942B700AE833F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE12B42DF942B700AE833F /* Preview Assets.xcassets */; };
 		3CFE12C02DF942D500AE833F /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE12BD2DF942D500AE833F /* ClipboardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C5267BF2DF95E1100DA18EA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		3CFE12AA2DF942B700AE833F /* KimchiPaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KimchiPaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CFE12AD2DF942B700AE833F /* KimchiPasteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KimchiPasteApp.swift; sourceTree = "<group>"; };
+		3CFE12AD2DF942B700AE833F /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		3CFE12B12DF942B700AE833F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3CFE12B42DF942B700AE833F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3CFE12B62DF942B700AE833F /* KimchiPaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KimchiPaste.entitlements; sourceTree = "<group>"; };
 		3CFE12BD2DF942D500AE833F /* ClipboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -35,6 +33,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C16DBE92E026932009E5A6C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3C5267BF2DF95E1100DA18EA /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3C16DBEA2E026946009E5A6C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3CFE12BD2DF942D500AE833F /* ClipboardManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		3CFE12A12DF942B700AE833F = {
 			isa = PBXGroup;
 			children = (
@@ -54,22 +68,13 @@
 		3CFE12AC2DF942B700AE833F /* KimchiPaste */ = {
 			isa = PBXGroup;
 			children = (
-				3CFE12BD2DF942D500AE833F /* ClipboardManager.swift */,
-				3CFE12AD2DF942B700AE833F /* KimchiPasteApp.swift */,
-				3C5267BF2DF95E1100DA18EA /* ContentView.swift */,
+				3C16DBEA2E026946009E5A6C /* Managers */,
+				3C16DBE92E026932009E5A6C /* Views */,
+				3CFE12AD2DF942B700AE833F /* Main.swift */,
 				3CFE12B12DF942B700AE833F /* Assets.xcassets */,
 				3CFE12B62DF942B700AE833F /* KimchiPaste.entitlements */,
-				3CFE12B32DF942B700AE833F /* Preview Content */,
 			);
 			path = KimchiPaste;
-			sourceTree = "<group>";
-		};
-		3CFE12B32DF942B700AE833F /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3CFE12B42DF942B700AE833F /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +135,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFE12B52DF942B700AE833F /* Preview Assets.xcassets in Resources */,
 				3CFE12B22DF942B700AE833F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,7 +148,7 @@
 			files = (
 				3CFE12C02DF942D500AE833F /* ClipboardManager.swift in Sources */,
 				3C5267C02DF95E1100DA18EA /* ContentView.swift in Sources */,
-				3CFE12AE2DF942B700AE833F /* KimchiPasteApp.swift in Sources */,
+				3CFE12AE2DF942B700AE833F /* Main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

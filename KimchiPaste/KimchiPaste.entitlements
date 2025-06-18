@@ -6,5 +6,8 @@
     <true/>
     <key>com.apple.security.files.user-selected.read-only</key>
     <true/>
+    <!-- 基本沙盒权限 -->
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
 </dict>
 </plist>
