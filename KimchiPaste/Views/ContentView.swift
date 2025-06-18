@@ -5,7 +5,7 @@ struct ContentView: View {
     @State private var showAlert = false
     @State private var copiedItem: String?
     @State private var searchText = ""
-    
+
     var filteredItems: [ClipboardItem] {
         if searchText.isEmpty {
             return clipboardManager.clipboardItems
@@ -13,7 +13,7 @@ struct ContentView: View {
             return clipboardManager.clipboardItems.filter { $0.content.localizedCaseInsensitiveContains(searchText) }
         }
     }
-    
+
     var body: some View {
         VStack(spacing: 0) {
             // 搜索栏
@@ -21,11 +21,11 @@ struct ContentView: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.secondary)
                     .padding(.leading, 12)
-                
+
                 TextField("搜索剪贴板内容...", text: $searchText)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding(.vertical, 8)
-                
+
                 if !searchText.isEmpty {
                     Button(action: {
                         searchText = ""
@@ -40,17 +40,17 @@ struct ContentView: View {
             .background(Color(.controlBackgroundColor))
             .cornerRadius(8)
             .padding(8)
-            
+
             List {
                 if filteredItems.isEmpty {
                     VStack(alignment: .center, spacing: 12) {
                         Image(systemName: "doc.text.magnifyingglass")
                             .font(.system(size: 48))
                             .foregroundColor(.secondary)
-                        
+
                         Text("剪贴板历史记录为空")
                             .font(.headline)
-                        
+
                         Text("复制一些文本后，它们会显示在这里")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -87,7 +87,7 @@ struct ContentView: View {
                 }
             }
             .listStyle(PlainListStyle())
-            
+
             // 状态栏
             HStack {
                 Text("\(clipboardManager.clipboardItems.count)/\(clipboardManager.maxItems) 项")
@@ -95,9 +95,9 @@ struct ContentView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
                     .padding(.leading, 16)
-                
+
                 Spacer()
-                
+
                 Button(action: {
                     clipboardManager.clipboardItems.removeAll()
                     clipboardManager.saveItems()
@@ -131,21 +131,21 @@ struct ClipboardItemView: View {
     let onCopy: (String) -> Void
     @State private var hoverEffect = false
     @State private var showCheckmark = false
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.content)
                     .font(.body)
                     .lineLimit(2)
-                
+
                 Text(item.formattedDateTime)
                     .font(.caption2)
                     .foregroundColor(.secondary)
             }
-            
+
             Spacer()
-            
+
             Button(action: {
                 onCopy(item.content)
 
@@ -179,8 +179,7 @@ struct ClipboardItemView: View {
             }
             .buttonStyle(PlainButtonStyle())
         }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 4)
+        .padding(8)
         .background(
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color(.controlBackgroundColor))
